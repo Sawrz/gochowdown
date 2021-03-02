@@ -1111,7 +1111,7 @@ input[type=range] {
   box-shadow: none;
 }
 
-.button-transparent:hover:before, 
+.button-transparent:hover:before,
 .button-transparent:focus:before {
   opacity: .09375;
 }
@@ -1119,7 +1119,7 @@ input[type=range] {
 .button-transparent:focus {
   outline: none;
   border-color: transparent;
-  box-shadow: 0 0 0 2px; 
+  box-shadow: 0 0 0 2px;
 }
 
 .button-transparent:active,
@@ -1262,7 +1262,7 @@ input[type=range] {
 img{width:100%;}
 .no-line-height{line-height:0;}
 
-.bg-blue-tile{background: #007FFF url($bg-blue-tile-url); position:relative;}
+.bg-blue-tile{background: #007FFF}
 @media all and (min-width:40em){
 .bg-blue-tile:after{position:absolute; top:0; left:0; right:0; bottom:0; content:" "; box-shadow:inset 0 0 100px 20px #007FFF; z-index:1; pointer-events:none;}
 }
