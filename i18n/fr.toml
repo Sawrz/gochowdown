@@ -72,3 +72,10 @@ other = "Open source, tout est sur Github"
 
 [contribute]
 other = "contribuez"
+
+# Footer text
+[footer_all_rights_reserved]
+other = "Tous droits résérvés"
+
+[footer_privacy_policy]
+other = "Politique de confidentialité"
