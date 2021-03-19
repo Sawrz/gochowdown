@@ -1,11 +1,15 @@
-.footer {
-  width: 100%;
-  background-color: $light;
+.td-footer {
+  background-color: $primary !important;
   text-align: center;
-  line-height: 1.5rem;
-  padding: 3.5rem 0 3.5rem;
-  margin-top: 0.5rem;
+
   a {
-    color: $link-color;
+    color: lighten($primary, 60%);
   }
+
+  a:hover {
+    color: lighten($primary, 60%);
+  }
+
 }
+
+
