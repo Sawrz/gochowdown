@@ -1,0 +1,31 @@
+.banner {
+    position: relative;
+
+    .banner-text-block {
+        margin: 0 auto;
+        width: 50%;
+
+    }
+
+    @media (min-width:320px) and (max-width:800px) {
+        .banner-text-block {
+            margin: 0 auto;
+            width: 100%;
+
+        }
+    }
+
+    .banner-button {
+        display: flex;
+        justify-content: center;
+
+        .btn-light, .btn-light:active {
+        background: $white;
+        border-color: $white;
+        }
+    }
+
+
+}
+
+
