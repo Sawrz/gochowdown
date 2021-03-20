@@ -1,28 +1,45 @@
 <div class="home">
-  <div class="recipes xs-px1 xs-mt2">
-    <div class="clearfix">
+  <div class="card-columns">
     {{ range sort (where .Site.RegularPages "Section" "recipes") "Title" }}
-      <div class="sm-col sm-col-6 md-col-6 lg-col-4 xs-px1 xs-mb2">
-          <a class="block relative bg-blue" href="{{ .RelPermalink }}">
-            {{ if .Params.Image }}
-              <div class="image ratio bg-cover" style="background-image:url({{.Permalink}}{{ .Params.Image }});"></div>
-            {{ else }}
-              {{ with .Resources.ByType "image" }}
-                {{ range first 1 . }}
-                  <div class="image ratio bg-cover" style="background-image:url({{ .Permalink }});"></div>
-                {{ end }}
-              {{ else }}
-                <div class="image ratio bg-cover"></div>
-              {{ end }}
-            {{ end }}
-            <h1 class="title p2 m0 absolute white bottom-0 left-0 title-shadow">{{ .Title }}</h1>
+        <div class="card">
+          <a class="card-link" href="{{ .RelPermalink }}">
+            <div class="card-content">
+
+              <div class="card-thumbnail">
+                <img src="{{.Permalink}}{{ .Params.Image }}" alt="Food Image" class=card-img-top>
+                <h3 class="card-title">{{ .Title }}</h3>
+              </div>
+
+
+              <div class="card-info">
+                <div class="card-item">
+                  <div class="card-label">{{ i18n "prepTime" }}</div>
+                  <div class="card-text">{{ .Params.PrepTime }}</div>
+                </div>
+
+                <div class="card-item">
+                  <div class="card-label">{{ i18n "cookTime" }}</div>
+                  <div class="card-text">{{ .Params.CookTime }}</div>
+                </div>
+
+                <div class="card-item">
+                  <div class="card-label">{{ i18n "yields" }}</div>
+                  <div class="card-text">{{ .Params.Yield }}</div>
+                </div>
+
+                <div class="card-item">
+                  <div class="card-label">{{ i18n "cuisine" }}</div>
+                  <div class="card-text">{{ .Params.Cuisine }}</div>
+                </div>
+
+              </div>
+            </div>
           </a>
-      </div>
+        </div>
     {{ end }}
-    </div>
   </div>
 
-  <div class="sell bg-blue-tile mt4">
+  <div class="sell bg-dark mt4">
     <div class="clearfix white px2">
       <div class="sm-col md-col-6 px2 md-px4 py2 md-py4">
         <h1>{{ i18n "for-the-home-chef" }}</h1>
