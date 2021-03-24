@@ -1,0 +1,67 @@
+# Basic Settings
+baseURL = "https://example.com"
+languageCode = "de"
+title = "Gourmet Secrets"
+theme = "gourmet-secrets"
+
+# Language settings
+defaultContentLanguage = "en"
+
+[languages]
+[languages.en]
+weight = 0
+languageName ="English"
+contentDir = "content/en"
+description = "A Site full of recipes."
+[languages.de]
+weight = 1
+languageName ="Deutsch"
+contentDir = "content/de"
+description = "Eine Seite voller Rezepte."
+
+[params]
+# About you
+copyright = "John Doe"
+
+# Need a privacy policy?
+privacy_policy = ""
+
+# Favicons
+favicon_32 = "/images/favicon-32x32.png"
+favicon_16 = "/images/favicon-16x16.png"
+
+# Configure the search engine on your site (I prefer Lunar.js since it's local)
+
+# Google Custom Search Engine ID. Remove or comment out to disable search.
+# gcs_engine_id = "YOUR GOOGLE ID"
+
+# Enable Algolia DocSearch
+algolia_docsearch = false
+
+# Enable Lunr.js offline search
+offlineSearch = true
+
+[params.homepage]
+# You may want to remove this banner in a production environment. If not: Thanks for your support!
+theme_banner = true
+
+[params.ui]
+#  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
+navbar_logo = false
+# Set to true to disable the About link in the site footer
+footer_about_disable = false
+
+# Main Menu and Taxonomies. It's recommended to keep them as they are.
+[[menu.main]]
+name    = "Cuisine"
+url     = "/cuisine/"
+weight  = 1
+[[menu.main]]
+name    = "Category"
+url     = "/category/"
+weight  = 2
+
+[taxonomies]
+category = "category"
+cuisine = "cuisine"
+tag = "tags"
