@@ -1,10 +1,14 @@
 {{ define "content" }}
   <section class="container-fluid taxonomy-page">
-    <h1 class="title">
-      {{- if eq .Kind "taxonomy" -}}
-        {{- .Data.Singular | title -}}
-      {{- end -}}
-    </h1>
+    <div class="row title-header">
+      <div class="col-2 search-col">
+        <h1 class="title">
+          {{- if eq .Kind "taxonomy" -}}
+            {{- .Data.Singular | title -}}
+          {{- end -}}
+        </h1>
+      </div>
+    </div>
 
     <div class="row taxonomy-pills">
       <div class="col-2 taxonomy-navigation-bar">
