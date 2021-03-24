@@ -1,0 +1,236 @@
+.recipe-article {
+    a {
+        color: $gray-600;
+    }
+
+    .recipe-header {
+        padding-bottom: 0px;
+        padding-top: 25px;
+        padding-left: 0px;
+        background-color: $white;
+
+        .recipe-info-box {
+            padding: 5px 0px;
+
+            .recipe-info-col {
+                .recipe-info {
+                    display: flex;
+                    justify-content: center;
+
+                    .info-name {
+                        color: $gray-800;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        padding-right: 5px;
+                    }
+
+                    .info {
+                        color: $gray-900;
+                    }
+                }
+            }
+        }
+
+        .recipe-description {
+            padding: 20px;
+        }
+    }
+
+    .recipe {
+        .ingredients-col {
+            border-right: 1px solid $gray-200;
+            padding-right: 50px;
+        }
+
+        .instructions-col {
+            padding-left: 50px;
+        }
+
+        @media (min-width:500px) and (max-width:991px) {
+            .ingredients-col {
+                border-right: 0px solid $gray-200;
+                padding-right: 30px;
+            }
+
+            .instructions-col {
+                padding-left: 30px;
+            }
+        }
+
+        @media (min-width:0px) and (max-width:500px) {
+            .ingredients-col {
+                border-right: 0px solid $gray-200;
+                padding-right: 15px;
+            }
+
+            .instructions-col {
+                padding-left: 15px;
+            }
+        }
+
+        .recipeItems {
+            padding: 0px 15px 15px 15px;
+
+            ul {
+                margin:0;
+                padding:0;
+                list-style:none;
+            }
+            ul li {
+                padding:0 0 0 25px;
+                position:relative;
+                margin-top: 3px;
+            }
+
+
+
+            .list-name {
+                font-size: 11pt;
+                color: $gray-600;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+
+        .recipe-item-container {
+          display: flex;
+          flex-flow: row nowrap;
+          padding-bottom: 1rem;
+        }
+
+        /* Styling Enumeration Starts */
+        .enumeration-label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin: 0 1rem 0 0;
+            cursor: pointer;
+            line-height: 28px;
+            min-height: 28px;
+            min-width: 28px;
+            height: 28px;
+            width: 28px;
+            clear: both;
+            float: left;
+        }
+
+        .enumeration-index {
+            color: $secondary;
+            font-weight: bold;
+            font-size: 15pt;
+        }
+
+        /* Styling Enumeration Ends */
+
+        /* Styling Checkbox Starts */
+        .checkbox-label {
+            display: block;
+            position: relative;
+            margin: 0 1rem 0 0;
+            cursor: pointer;
+            line-height: 28px;
+            min-height: 28px;
+            min-width: 28px;
+            height: 28px;
+            width: 28px;
+            clear: both;
+            float: left;
+        }
+
+        .checkbox-label input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkbox-label .checkbox-custom {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 24px;
+            width: 24px;
+            border-radius: 5px;
+            border: 2px solid $secondary;
+            transition: all 0.3s ease-out;
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            -ms-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+        }
+
+
+        .checkbox-label input:checked ~ .checkbox-custom {
+            background-color: $white;
+            border-radius: 5px;
+            border: 2px solid $secondary;
+            -webkit-transform: rotate(0deg) scale(1);
+            -ms-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+            opacity:1;
+        }
+
+        .checkbox-label .checkbox-custom::after {
+            position: absolute;
+            content: "";
+            left: 12px;
+            top: 12px;
+            height: 0px;
+            width: 0px;
+            border-radius: 5px;
+            border: solid $secondary;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(0deg) scale(0);
+            -ms-transform: rotate(0deg) scale(0);
+            transform: rotate(0deg) scale(0);
+            opacity:1;
+            transition: all 0.3s ease-out;
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            -ms-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+        }
+
+        .checkbox-label input:checked ~ .checkbox-custom::after {
+          -webkit-transform: rotate(45deg) scale(1);
+          -ms-transform: rotate(45deg) scale(1);
+          transform: rotate(45deg) scale(1);
+          opacity:1;
+          left: 8px;
+          top: 2px;
+          width: 6px;
+          height: 12px;
+          border: solid $secondary;
+          border-width: 0 3px 3px 0;
+          background-color: transparent;
+          border-radius: 0;
+        }
+        /* Styling Checkbox Ends */
+    }
+
+    .recipe-footer {
+        margin-top: 25px;
+
+        .recipe-source {
+            display: flex;
+            justify-content: center;
+            padding: 25px 0px 50px 0px;
+
+            .source-link {
+                padding: 0px 5px;
+                color: $secondary;
+            }
+        }
+
+        .taxonomy {
+            display: flex;
+            justify-content: center;
+
+            a {
+                color: $secondary;
+            }
+        }
+    }
+}
+
+

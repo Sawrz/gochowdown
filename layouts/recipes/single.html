@@ -7,75 +7,126 @@
 
 
 <div class="container">
-<!-- call up the image and image credit link -->
-  {{ with .Params.Image }}
-    <img itemprop="image" src="{{ . }}" class="img-fluid" />
-  {{ end }}
-
-  <div class="jumbotron jumbotron-fluid">
-    <h1 class="post-title center m1 sm-mt3" itemprop="name">{{ .Title }}</h1>
-
-    {{ with .Params.Description }}
-      <p>{{ . }}</p>
+  <article class="recipe-article">
+    <!-- call up the image and image credit link -->
+    {{ with .Params.Image }}
+      <img itemprop="image" src="{{ . }}" class="img-fluid" />
     {{ end }}
 
-  </div>
+    <!-- call up the main recipe title and info -->
+    <div class="jumbotron recipe-header">
+      <div class="recipe-overview-content">
+        <h1 class="recipe-title" itemprop="name">{{ .Title }}</h1>
 
-  <div class="row">
-    <div class="col">
-      <h4 class="">{{ i18n "ingredients" }}</h4>
+        <div class="row recipe-info-box">
+          <div class="col recipe-info-col">
+            {{ with .Params.yield }}
+              <span class="recipe-info">
+                <span class="info-name">{{ i18n "yields" }}:</span>
+                <span class="info">{{ . }}</span>
+              </span>
+            {{ end }}
+          </div>
 
+          <div class="col recipe-info-col">
+            {{ with .Params.prepTime }}
+              <span class="recipe-info">
+                <span class="info-name">{{ i18n "prepTime" }}:</span>
+                <span class="info">{{ . }}</span>
+              </span>
+            {{ end }}
+          </div>
 
+          <div class="col recipe-info-col">
+            {{ with .Params.cookTime }}
+              <span class="recipe-info">
+                <span class="info-name">{{ i18n "cookTime" }}:</span>
+                <span class="info">{{ . }}</span>
+              </span>
+            {{ end }}
+          </div>
 
-      {{ with .Params.Components }}
-        <div class="clearfix mxn2">
-          {{ range  . }}
-            {{ $compTitle := . }}
-            <div class="sm-col sm-col-4 px2 recipeItems">
-              {{ range where $.Site.Pages "Title" $compTitle }}
-                <h4 class=""><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+          <div class="col recipe-info-col">
+            {{ with .Params.cuisine }}
+              <span class="recipe-info">
+                <span class="info-name">{{ i18n "cuisine" }}:</span>
+                <span class="info">{{ . }}</span>
+              </span>
+            {{ end }}
+          </div>
 
-                <ul class="ingredients" itemprop="ingredients">
-                  {{ range .Params.Ingredients }}
-                  <li itemprop="ingredient">
-                    {{ with ( . | markdownify) }}{{ partial "recipe_item.html" . }}{{ end }}
-                  </li>
-                  {{ end }}
-                </ul>
-              {{ end }}
-            </div>
-          {{ end }}
         </div>
-        <p>Assembly</p>
-      {{ end }}
 
-      {{ with .Params.Ingredients }}
-        <ul itemprop="ingredients">
-          <!-- list ingredients that make up recipe -->
-          {{ range . }}
-            <li itemprop="recipeIngredient">
-              {{ with ( . | markdownify) }}{{ partial "recipe_item.html" . }}{{ end }}
-            </li>
-          {{ end }}
-        </ul>
-      {{ end }}
-
+        {{ with .Params.Description }}
+          <p class="recipe-description">{{ . }}</p>
+        {{ end }}
       </div>
-      <div class="col-8">
-        <h4 class="blue mt0 mb2 xs-center">{{ i18n "directions" }}</h4>
+    </div>
 
+    <!-- call up the recipe content -->
+    <div class="row recipe">
+
+      <!-- call up recipe ingredients -->
+      <div class="col ingredients-col">
+        <h4 class="py-3">{{ i18n "ingredients" }}</h4>
+
+        <!-- check if it's a component-based recipe and list ingredients-->
         {{ with .Params.Components }}
-        <div class="clearfix mxn2">
+          <div class="clearfix">
+            {{ range  . }}
+              {{ $compTitle := . }}
+              <div class="recipeItems">
+                {{ range where $.Site.Pages "Title" $compTitle }}
+                  <p class="list-name"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+
+                  <ul class="ingredients" itemprop="ingredients">
+                    {{ range .Params.Ingredients }}
+                    <li itemprop="ingredient">
+                      {{ with ( . | markdownify) }}{{ partial "recipe_item_checkbox.html" . }}{{ end }}
+                    </li>
+                    {{ end }}
+                  </ul>
+                {{ end }}
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
+
+        <!-- list ingredients that make up recipe -->
+        <div class="recipeItems">
+          {{ with .Params.Components }}
+            <p class="list-name">{{ i18n "assembly" }}</p>
+          {{ end }}
+
+          <ul itemprop="ingredients">
+            <!-- list ingredients that make up recipe -->
+            {{ range .Params.Ingredients }}
+              <li itemprop="recipeIngredient">
+                {{ with ( . | markdownify) }}{{ partial "recipe_item_checkbox.html" . }}{{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      <!-- end recipe ingredients -->
+
+      <!-- call up recipe directions -->
+      <div class="col-8 instructions-col">
+        <h4 class="py-3">{{ i18n "directions" }}</h4>
+
+        <!-- check if it's a component-based recipe and list directions-->
+        {{ with .Params.Components }}
+        <div class="clearfix">
           {{ range  . }}
             {{ $compTitle := . }}
-            <div class="sm-col sm-col-4 px2 recipeItems">
+            <div class="recipeItems">
               {{ range where $.Site.Pages "Title" $compTitle }}
-                <h4 class=""><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+                <p class="list-name"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
 
-                <ul class="ingredients" itemprop="ingredients">
-                  {{ range .Params.Directions }}
+                <ul class="recipeInstructions" itemprop="recipeInstructions">
+                  {{ range $index, $element := .Params.Directions }}
                     <li>
-                      {{ with ( . | markdownify) }}{{ partial "recipe_item.html" . }}{{ end }}
+                      {{ with ( . | markdownify) }}{{ partial "recipe_item_enumerate.html" (dict "element" $element "index" (add $index 1))}}{{ end }}
                     </li>
                   {{ end }}
                 </ul>
@@ -83,88 +134,93 @@
             </div>
           {{ end }}
         </div>
-        <p>Assembly</p>
-      {{ end }}
-
-      <ul itemprop="recipeInstructions">
-        {{ range .Params.Directions }}
-        <li>
-          {{ with ( . | markdownify) }}{{ partial "recipe_item.html" . }}{{ end }}</li>
         {{ end }}
-      </ul>
 
-    </div>
+        <!-- list directions that make up recipe -->
+        <div class="recipeItems">
+          {{ with .Params.Components }}
+            <p class="list-name">{{ i18n "assembly" }}</p>
+          {{ end }}
 
-  </div>
+          <ul itemprop="recipeInstructions">
+            {{ range $index, $element := .Params.Directions }}
+            <li>
+              {{ with ( . | markdownify) }}{{ partial "recipe_item_enumerate.html" (dict "element" $element "index" (add $index 1))}}{{ end }}
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        <!-- end recipe directions -->
 
-
-
-
-
-
-
-
-  <article class="post-content px2">
-    <!-- call up the main recipe title and content -->
-    <header class="post-header">
-      <h1 class="post-title center m1 sm-mt3" itemprop="name">{{ .Title }}</h1>
-    </header>
-
-    <div class="px2 mt3 clearfix">
-      <div class="sm-col-8 mx-auto" itemprop="description">{{.Content}}</div>
-    </div>
-
-    <div class="clearfix mt3">
-      {{ with .Params.yield }}
-      <div class="sm-col sm-col-2">
-          <h4 class="blue mt0 mb2 xs-center">{{ i18n "yields" }}: {{ . }}</h4>
       </div>
-      {{ end }}
-      {{ with .Params.prepTime }}
-      <div class="sm-col sm-col-2">
-        <h4 class="blue mt0 mb2 xs-center">{{ i18n "prepTime" }}: {{ . }}</h4>
-      </div>
-      {{ end }}
-      {{ with .Params.cookTime }}
-      <div class="sm-col sm-col-2">
-        <h4 class="blue mt0 mb2 xs-center">{{ i18n "cookTime" }}: {{ . }}</h4>
-      </div>
-      {{ end }}
     </div>
 
+    <div class="clearfix recipe-footer">
+      <div class="recipe-source">
+        {{ if (or .Params.SourceName .Params.AuthorName) }}
+          {{ i18n "inspired" }}
+        {{ end }}
 
-    <br />
+        {{ with .Params.SourceName }}
+          {{$name := .}}
+          {{ i18n "by" }}
+          {{with $.Params.SourceURL }}
+            <a class="source-link" href="{{.}}">{{$name}}</a>
+           {{else}}
+             {{$name}}
+           {{end}}
+        {{ end }}
 
-    {{ with .Params.Category }}{{ partial "taxonomy/category" . }}{{ end }}
-    {{ with .Params.Cuisine }}{{ partial "taxonomy/cuisine" . }}{{ end }}
-    {{ with .Params.Tags }}{{ partial "taxonomy/tags" . }}{{ end }}
+        {{with .Params.AuthorName}}
+          {{$name := .}}
+          {{ i18n "from" }}
+          {{with $.Params.AuthorURL }}
+            <a class="source-link" href="{{.}}">{{$name}}</a>
+           {{else}}
+             {{$name}}
+           {{end}}
+        {{end}}
+      </div>
 
-    <div class="recipe-source">
-      {{ if (or .Params.SourceName .Params.AuthorName) }}
-        {{ i18n "inspired" }}
-      {{ end }}
+      <div class="row">
+        <div class="col taxonomy">
+          {{ with .Params.Tags }}
+            {{ partial "taxonomy/tags" . }}
+          {{ end }}
+        </div>
 
-      {{ with .Params.SourceName }}
-        {{$name := .}}
-        {{ i18n "by" }}
-        {{with $.Params.SourceURL }}
-          <a href="{{.}}">{{$name}}</a>
-         {{else}}
-           {{$name}}
-         {{end}}
-      {{ end }}
+        <div class="col taxonomy">
+          {{ with .Params.Category }}
+            {{ partial "taxonomy/category" . }}
+          {{ end }}
+        </div>
 
-      {{with .Params.AuthorName}}
-        {{$name := .}}
-        {{ i18n "from" }}
-        {{with $.Params.AuthorURL }}
-          <a href="{{.}}">{{$name}}</a>
-         {{else}}
-           {{$name}}
-         {{end}}
-      {{end}}
+        <div class="col taxonomy">
+          {{ with .Params.Cuisine }}
+            {{ partial "taxonomy/cuisine" . }}
+          {{ end }}
+        </div>
+      </div>
+
     </div>
-
   </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 {{ end }}

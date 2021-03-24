@@ -55,7 +55,7 @@
           <!-- list components that make up recipe -->
           {{ range . }}
           <li>
-            {{ with ( . | markdownify) }}{{ partial "recipe_item.html" . }}{{ end }}
+            {{ with ( . | markdownify) }}{{ partial "recipe_item_checkbox.html" . }}{{ end }}
           </li>
           {{ end }}
         </ul>
@@ -67,7 +67,7 @@
           <!-- list ingredients that make up recipe -->
           {{ range . }}
           <li itemprop="recipeIngredient">
-            {{ with ( . | markdownify) }}{{ partial "recipe_item.html" . }}{{ end }}
+            {{ with ( . | markdownify) }}{{ partial "recipe_item_checkbox.html" . }}{{ end }}
           </li>
           {{ end }}
         </ul>
@@ -79,19 +79,19 @@
         <ul itemprop="recipeInstructions">
           {{ range .Params.Directions }}
           <li>
-            {{ with ( . | markdownify) }}{{ partial "recipe_item.html" . }}{{ end }}</li>
+            {{ with ( . | markdownify) }}{{ partial "recipe_item_checkbox.html" . }}{{ end }}</li>
           {{ end }}
         </ul>
       </div>
     </div>
-    <!-- end recipe and directions --> 
+    <!-- end recipe and directions -->
 
     <!-- check if it's a component-based recipe, render it -->
     {{ with .Params.Components }}
     <div class="components bg-darken-2 p2 mt3 mb3 center">
       &darr; This is a <strong class="blue">component-based recipe</strong> (fancy talk for making the dish in pieces, then assembling). &darr;
     </div>
-    
+
     <div class="clearfix mxn2">
     {{ range  . }}
       {{ $compTitle := . }}
@@ -116,16 +116,16 @@
         <ul class="ingredients" itemprop="ingredients">
           {{ range .Params.Ingredients }}
           <li itemprop="ingredient">
-            {{ with ( . | markdownify) }}{{ partial "recipe_item.html" . }}{{ end }}
+            {{ with ( . | markdownify) }}{{ partial "recipe_item_checkbox.html" . }}{{ end }}
           </li>
           {{ end }}
         </ul>
-        
+
         <h4 class="blue regular xs-center">{{ i18n "steps" }}</h4>
         <ul itemprop="instructions">
           {{ range .Params.Directions }}
           <li>
-            {{ with ( . | markdownify) }}{{ partial "recipe_item.html" . }}{{ end }}
+            {{ with ( . | markdownify) }}{{ partial "recipe_item_checkbox.html" . }}{{ end }}
           </li>
           {{ end }}
         </ul>
@@ -134,9 +134,9 @@
       </div>
     {{ end }}
     </div>
-  
+
     {{ end }}
-    <!-- end components -->  
+    <!-- end components -->
     <br />
 
     {{ with .Params.Category }}{{ partial "taxonomy/category" . }}{{ end }}
