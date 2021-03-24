@@ -1,11 +1,10 @@
 ---
 layout: recipe
 date: {{ .Date }}
-draft: true    
+draft: true
 title:  "{{ replace .Name "-" " " | humanize | title }}" # The title of your awesome recipe
-image: awesome-recipe-image.jpg # Name of image in recipe bundle
-imagecredit: https://placekitten.com/600/800 # URL to image source page, website, or creator
-YouTubeID:  # The F2SYDXV1W1w part of https://www.youtube.com/watch?v=F2SYDXV1W1w
+image: no-image.jpg # Name of image in recipe bundle
+description: # Add some description to your recipe
 authorName: # Name of the recipe/article author
 authorURL: # URL of their home website
 sourceName: # Name of the source website
@@ -15,30 +14,20 @@ cuisine: # The region associated with your recipe. For example, "French", Medite
 tags: # You don't have to have 3, feel free to have 10, 1, or none
   - tag1
   - tag2
-  - tag3 
+  - tag3
 yield: 8
 prepTime: 15
 cookTime: 45
 
 ingredients:
-- 1 16 oz. box of something
-- 1 12-ounce can something else
-- 3 eggs
-- 1/2 cup unsalted butter
-- 2 cups cheddar cheese, shredded and divided
-- 1 cup mozzarella cheese, shredded
-- 2 tablespoons feta cheese, crumbled
-- 1 cup provolone cheese, cut into small pieces
-- 1/2 cup smoked Gouda cheese, shredded
-- 4 teaspoons salt, divided
-- 2 teaspoons black pepper
+- 1 Lorem
+- 1 Ipsum
+- 3 Dolor
 
 directions:
-- Preheat oven to 350˚F/180˚C.
-- In a large pot or dutch oven, cook macaroni according to package directions, salting the water with 2 teaspoons of salt. Drain and return to the warm pot.
-- Add butter to warm macaroni and mix until melted. Season with the remaining salt and pepper.
-- Add 1 cup of cheddar, mozzarella, provolone, Gouda, and feta cheese. Mix well.
-- Add eggs and evaporated milk, mix until fully incorporated.
-- Transfer to a 9x13-inch baking dish and top with the remaining cheddar cheese.
-- Bake in a preheated oven for 40–45 minutes, until the top has nicely browned.
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Vestibulum lectus mauris ultrices eros in cursus turpis massa. Enim diam vulputate ut pharetra sit. Aliquam eleifend mi in nulla posuere.
+- Donec ac odio tempor orci dapibus ultrices in iaculis.
+- Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus.
+- Neque gravida in fermentum et. Fermentum dui faucibus in ornare quam viverra orci sagittis. Id leo in vitae turpis massa sed. Orci ac auctor augue mauris.
 ---
