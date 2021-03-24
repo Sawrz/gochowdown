@@ -5,6 +5,10 @@
         margin: 0 auto;
         width: 50%;
 
+        a {
+            color: $secondary;
+        }
+
     }
 
     @media (min-width:320px) and (max-width:800px) {

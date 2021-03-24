@@ -1,13 +1,13 @@
 {{ define "content" }}
-  <section class="container-fluid">
+  <section class="container-fluid taxonomy-page">
     <h1 class="title">
       {{- if eq .Kind "taxonomy" -}}
         {{- .Data.Singular | title -}}
       {{- end -}}
     </h1>
 
-    <div class="row">
-      <div class="col-2">
+    <div class="row taxonomy-pills">
+      <div class="col-2 taxonomy-navigation-bar">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
           {{ range $index, $element := .Paginator.Pages }}
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <div class="col-10">
+      <div class="col-10 taxonomy-recipe-listing">
         <div class="tab-content" id="v-pills-tabContent">
           {{ range $index, $element := .Paginator.Pages }}
             {{ $taxonomy := string $element.Data.Singular }}
