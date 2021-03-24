@@ -1,0 +1,35 @@
+<div class="card">
+  <a class="card-link" href="{{ .RelPermalink }}">
+    <div class="card-content">
+
+      <div class="card-thumbnail">
+        <img src="{{.Permalink}}{{ .Params.Image }}" alt="Food Image" class=card-img-top>
+        <h3 class="card-title">{{ .Title }}</h3>
+      </div>
+
+
+      <div class="card-info">
+        <div class="card-item">
+          <div class="card-label">{{ i18n "prepTime" }}</div>
+          <div class="card-text">{{ .Params.PrepTime }}</div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-label">{{ i18n "cookTime" }}</div>
+          <div class="card-text">{{ .Params.CookTime }}</div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-label">{{ i18n "yields" }}</div>
+          <div class="card-text">{{ .Params.Yield }}</div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-label">{{ i18n "cuisine" }}</div>
+          <div class="card-text">{{ .Params.Cuisine }}</div>
+        </div>
+
+      </div>
+    </div>
+  </a>
+</div>

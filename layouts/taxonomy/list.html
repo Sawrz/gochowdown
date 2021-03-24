@@ -1,20 +1,54 @@
 {{ define "content" }}
-  <section class="container list">
+  <section class="container-fluid">
     <h1 class="title">
       {{- if eq .Kind "taxonomy" -}}
         {{- .Data.Singular | title -}}
-        {{- print ": " -}}
       {{- end -}}
-
-      {{- .Title -}}
     </h1>
-    {{ range .Paginator.Pages }}
-    <div class="pure-g">
-      <div class="pure-u-1">
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+
+    <div class="row">
+      <div class="col-2">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+          {{ range $index, $element := .Paginator.Pages }}
+            {{ if eq $index 0 }}
+              <a class="nav-link active"  id="v-pills-{{ $element.Title }}-tab" data-toggle="pill" href="#v-pills-{{ $element.Title }}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $element.Title }}</a>
+            {{ else }}
+              <a class="nav-link"  id="v-pills-{{ $element.Title }}-tab" data-toggle="pill" href="#v-pills-{{ $element.Title }}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $element.Title }}</a>
+            {{ end }}
+
+          {{ end }}
+        </div>
+      </div>
+
+      <div class="col-10">
+        <div class="tab-content" id="v-pills-tabContent">
+          {{ range $index, $element := .Paginator.Pages }}
+            {{ $taxonomy := string $element.Data.Singular }}
+            {{ if eq $index 0 }}
+              <div class="tab-pane fade show active" id="v-pills-{{ $element.Title }}" role="tabpanel" aria-labelledby="v-pills-{{ $element.Title }}-tab">
+                <div class="card-columns">
+                  {{ range sort (where $.Site.RegularPages "Section" "recipes") "Title" }}
+                    {{ if eq (.Param $taxonomy) $element.Title}}
+                      {{ partial "recipe_card.html" . }}
+                    {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+            {{ else }}
+              <div class="tab-pane fade" id="v-pills-{{ $element.Title }}" role="tabpanel" aria-labelledby="v-pills-{{ $element.Title }}-tab">
+                <div class="card-columns">
+                  {{ range sort (where $.Site.RegularPages "Section" "recipes") "Title" }}
+                    {{ if eq (.Param $taxonomy) $element.Title}}
+                      {{ partial "recipe_card.html" . }}
+                    {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+          {{ end }}
+        </div>
       </div>
     </div>
-    {{ end }}
-    {{ partial "pagination.html" . }}
   </section>
 {{ end }}
