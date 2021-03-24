@@ -1,5 +1,5 @@
 [yields]
-other = "Zutaten für"
+other = "Portionen"
 
 [prepTime]
 other = "Vorbereitungszeit"
@@ -15,6 +15,9 @@ other = "Arbeitsschritte"
 
 [components]
 other = "Komponenten"
+
+[assembly]
+other = "Zusammensetzung"
 
 [steps]
 other = "Arbeitsschritte"

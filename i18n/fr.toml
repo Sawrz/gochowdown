@@ -16,6 +16,9 @@ other = "Instructions"
 [components]
 other = "Composantes"
 
+[assembly]
+other = "Assemblage"
+
 [steps]
 other = "Etapes"
 

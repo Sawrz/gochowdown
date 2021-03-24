@@ -1,5 +1,5 @@
 [yields]
-other = "Yields"
+other = "Servings"
 
 [prepTime]
 other = "Preparation time"
@@ -15,6 +15,9 @@ other = "Directions"
 
 [components]
 other = "Components"
+
+[assembly]
+other = "Assembly"
 
 [steps]
 other = "Steps"
