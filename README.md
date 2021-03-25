@@ -8,9 +8,10 @@ A theme for [Hugo](https://gohugo.io/) forked from the [GoChowdown](https://gith
 
 ## Quick Start
 
-0. Install Hugo with your favorite package manager, or follow their [Installation Guide](https://gohugo.io/getting-started/installing/)
-    - Note that the _extended_ version of Hugo is required since this theme needs SCSS support. At the time of writing, this is the version found by installing via [HomeBrew](https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb) and the [Arch User Repository](https://www.archlinux.org/packages/community/x86_64/hugo/). If that isn't the case for your package manager, install using `$ go install --tags extended` as documented in the Hugo Install Docs.
-1. Add the repository into your Hugo Project repository as a submodule, `https://github.com/Sawrz/gourmet-secrets themes/gourmet-secrets`.
+1. Install Hugo with your favorite package manager, or follow their [Installation Guide](https://gohugo.io/getting-started/installing/)
+    - Note that the _extended_ version of Hugo is required since this theme needs SCSS support.
+1. Add the repository into your Hugo Project repository as a submodule, `git submodule add https://gitlab.com/sawrz/gourmet-secrets.git themes/gourmet-secrets`.
+1. Initialize all dependencies, `git submodule update --init --recursive`
 2. Configure your `config.toml` or `config.yaml`.
 3. Build your site with `hugo server` and see the result at `http://localhost:1313/`.
 
@@ -44,4 +45,3 @@ Since I built this theme for personal purposes only, SEO was none of my prioriti
 ## License
 
 Code is licensed under the [MIT license](https://github.com/Sawrz/gourmet-secrets).
-
