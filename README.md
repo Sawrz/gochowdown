@@ -3,7 +3,7 @@
 A theme for [Hugo](https://gohugo.io/) forked from the [GoChowdown](https://github.com/seanlane/gochowdown) Theme, build on the [Chowdown](https://github.com/clarklab/chowdown) theme for Jekyll.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/seanlane/gochowdown/master/images/screenshot.png" />
+  <img src="https://gitlab.com/sawrz/gourmet-secrets/-/raw/master/images/screenshot.png" />
 </p>
 
 ## Quick Start
