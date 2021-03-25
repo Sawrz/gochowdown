@@ -22,10 +22,10 @@ $card-height: 100%;
                 padding: 12px 0px;
                 width: 100%;
 
-                background: rgba(34,34,34,0.9);
-                background: linear-gradient(90deg,rgba(34,34,34,0.9) 0%, rgba(34,34,34,0.5) 50%, rgba(34,34,34,0) 100%);
-                background: -webkit-linear-gradient(90deg,rgba(34,34,34,0.9) 0%, rgba(34,34,34,0.5) 50%, rgba(34,34,34,0) 100%);
-                background: -moz-linear-gradient(90deg,rgba(34,34,34,0.9) 0%, rgba(34,34,34,0.5) 50%, rgba(34,34,34,0) 100%);
+                background: rgba($gray-900,0.9);
+                background: linear-gradient(90deg,rgba($gray-900,0.9) 0%, rgba($gray-900,0.5) 50%, rgba($gray-900,0) 100%);
+                background: -webkit-linear-gradient(90deg,rgba($gray-900,0.9) 0%, rgba($gray-900,0.5) 50%, rgba($gray-900,0) 100%);
+                background: -moz-linear-gradient(90deg,rgba($gray-900,0.9) 0%, rgba($gray-900,0.5) 50%, rgba($gray-900,0) 100%);
 
                 .card-heading {
                     padding-top: 15px;
