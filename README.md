@@ -34,6 +34,13 @@ This theme is sort of a Frankenstein theme based on [GoChowdown](https://github.
 
 Since I built this theme for personal purposes only, SEO was none of my priorities. If you would like to optimize this theme, feel free to join, or issue a PR.
 
+## Credits
+
+- [GoChowdown](https://github.com/seanlane/gochowdown) (forked from)
+- [Docsy](https://github.com/google/docsy) ("borrowed"/rewrote huge chunks of code")
+- [Chowdown](https://github.com/clarklab/chowdown) (base for GoChowDown)
+- [Hugo](https://gohugo.io/) (wouldn't be possibile without it)
+
 ## License
 
 Code is licensed under the [MIT license](https://github.com/Sawrz/gourmet-secrets).
