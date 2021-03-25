@@ -1,14 +1,14 @@
 .td-footer {
-  background-color: $primary !important;
-  text-align: center;
+    background-color: $primary !important;
+    text-align: center;
 
-  a {
-    color: lighten($primary, 60%);
-  }
+    a {
+        color: lighten($primary, 60%);
+    }
 
-  a:hover {
-    color: lighten($primary, 60%);
-  }
+    a:hover {
+        color: lighten($primary, 60%);
+    }
 
 }
 
