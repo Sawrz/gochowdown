@@ -16,9 +16,9 @@
 
           {{ range $index, $element := .Paginator.Pages }}
             {{ if eq $index 0 }}
-              <a class="nav-link active"  id="v-pills-{{ $element.Title }}-tab" data-toggle="pill" href="#v-pills-{{ $element.Title }}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $element.Title }}</a>
+              <a class="nav-link active"  id="v-pills-{{ $element.Title }}-tab" data-toggle="pill" href="#v-pills-{{ $element.Title }}" role="tab" aria-controls="v-pills-{{ $element.Title }}" aria-selected="true">{{ $element.Title }}</a>
             {{ else }}
-              <a class="nav-link"  id="v-pills-{{ $element.Title }}-tab" data-toggle="pill" href="#v-pills-{{ $element.Title }}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $element.Title }}</a>
+              <a class="nav-link"  id="v-pills-{{ $element.Title }}-tab" data-toggle="pill" href="#v-pills-{{ $element.Title }}" role="tab" aria-controls="v-pills-{{ $element.Title }}" aria-selected="true">{{ $element.Title }}</a>
             {{ end }}
 
           {{ end }}

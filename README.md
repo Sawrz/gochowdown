@@ -34,6 +34,11 @@ This theme is sort of a Frankenstein theme based on [GoChowdown](https://github.
 
 Since I built this theme for personal purposes only, SEO was none of my priorities. If you would like to optimize this theme, feel free to join, or issue a PR.
 
+## Bugs/Inconviniences
+
+- tags list works but is more or less useless
+- Recipe/Component Category/Cuisine redirects to according page but you need to select the pill manually (rework of pills may be required)
+
 ## License
 
 Code is licensed under the [MIT license](https://github.com/Sawrz/gourmet-secrets).
